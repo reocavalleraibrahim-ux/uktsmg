@@ -13,7 +13,7 @@ class JejaController extends Controller
      */
     public function index()
     {
-        $data = Jeja::join('tingkat','jeja.tingkat', '=', 'tingkat.id')->where(['jeja.id_dojang' => session('id')])->get();
+        $data = Jeja::select('tingkat.warna','jeja.*')->join('tingkat','jeja.tingkat', '=', 'tingkat.id')->where(['jeja.id_dojang' => session('id')])->get();
         return view('dashboard.jeja.main', compact('data'));
     }
 
@@ -78,7 +78,9 @@ class JejaController extends Controller
      */
     public function edit(String $id)
     {
-        //
+        $jeja = Jeja::where(['id' => $id])->first();
+        $tingkat = Tingkat::all();
+        return view('dashboard.jeja.edit',compact('jeja','tingkat'));
     }
 
     /**

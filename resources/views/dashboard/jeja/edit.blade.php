@@ -16,35 +16,32 @@
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label for="name" class="form-label">Nama Jeja</label>
-                            <input type="text" class="form-control" id="nama_jeja" name="nama_jeja" placeholder="Nama Jeja">
+                            <input type="text" class="form-control" id="nama_jeja" name="nama_jeja" placeholder="Nama Jeja" value="{{$jeja->nama_jeja}}">
                         </div>
                         <div class="col-md-6">
                             <label for="name" class="form-label">Tempat Lahir</label>
-                            <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir">
+                            <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" value="{{$jeja->tempat_lahir}}">
                         </div>
                         <div class="col-md-6">
                             <label for="name" class="form-label">Tanggal Lahir</label>
-                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir">
+                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir" value="{{$jeja->tanggal_lahir}}">
                         </div>
                         <div class="col-md-6">
                             <label for="name" class="form-label">Sabuk</label>
                             <select name="tingkat" id="tingkat" class="form-control">
                                 <option>Pilih Sabuk</option>
                                 @foreach($tingkat as $t)
-                                    <option value="{{$t->id}}"> <i class="putih"></i> {{$t->warna}}</option>
+                                    <option value="{{$t->id}}" <?php if($t->id == $jeja->tingkat){ echo 'selected';}?> <i class="putih"></i> {{$t->warna}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-md-2">
-                            <img name="prev" id="prev" max-width="200">
-                        </div>
-                        <div class="col-md-4" style="align-item:bottom;">
-                            <label for="name" class="form-label">Foto</label>
-                            <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto">
-                        </div>
                         <div class="col-md-6">
                             <label for="name" class="form-label">No Registrasi</label>
-                            <input type="text" class="form-control" id="no_registrasi" name="no_registrasi" placeholder="Nomor Registrasi">
+                            <input type="text" class="form-control" id="no_registrasi" name="no_registrasi" placeholder="Nomor Registrasi" value="{{$jeja->no_registrasi}}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Foto</label>
+                            <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto">
                         </div>
                         <div class="col-md-6">
                             <input type="submit" class="btn btn-primary" name="Create">
@@ -66,6 +63,5 @@
     document.getElementById('username').addEventListener("paste", function(e){
         e.preventDefault();
     });
-
 </script>
 @endsection
