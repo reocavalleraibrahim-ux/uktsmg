@@ -36,9 +36,21 @@
                             </select>
                         </div>
                         <div class="col-md-2">
-                            <img name="prev" id="prev" max-width="200">
+                            <img id="prev" alt="" src="{{asset('img/user.png')}}" style="max-width:200px;">
                         </div>
-                        <div class="col-md-4" style="align-item:bottom;">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Jenis Kelamin</label>
+                            <select name="jkel" class="form-control">
+                                <option>Pilih Jenis Kelamin</option>
+                                <option value="laki-laki">Laki-Laki</option>
+                                <option value="perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="col-md-10">
+                        </div>
+                        <div class="col-md-6" style="align-item:bottom;">
                             <label for="name" class="form-label">Foto</label>
                             <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto">
                         </div>
@@ -57,15 +69,13 @@
             </div>
           </div>
 <script>
-    document.getElementById('username').addEventListener("keydown",function (e){
-        if(e.key === " "){
-            e.preventDefault();
+    var foto = document.getElementById('foto');
+    var prev = document.getElementById('prev');
+    foto.onchange = evt => {
+        const [file] = foto.files
+        if(file){
+            prev.src = URL.createObjectURL(file)
         }
-    });
-
-    document.getElementById('username').addEventListener("paste", function(e){
-        e.preventDefault();
-    });
-
+    }
 </script>
 @endsection

@@ -34,6 +34,13 @@
           </a>
         </li>
 
+        <li class="pc-item">
+          <a href="{{ url('/ukt') }}" class="pc-link">
+            <span class="pc-micon"><i class="ph ph-calendar"></i></span>
+            <span class="pc-mtext">Ujian Kenaikan Tingkat</span>
+          </a>
+        </li>
+
         @endif    
 
         <li class="pc-item pc-caption">
@@ -53,51 +60,12 @@
         </li>
         <li class="pc-item pc-hasmenu">
           <a href="#!" class="pc-link"
-            ><span class="pc-micon"> <i class="ph ph-tree-structure"></i> </span><span class="pc-mtext" data-i18n="Menu levels">Event</span
+            ><span class="pc-micon"> <i class="ph ph-calendar"></i> </span><span class="pc-mtext" data-i18n="Menu levels">Event</span
             ><span class="pc-arrow"><i class="ti ti-chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="{{url('/ukt')}}" data-i18n="Ujian Kenaikan Tingkat">Ujian Kenaikan Tingkat</a></li>
-            <li class="pc-item pc-hasmenu">
-              <a href="#!" class="pc-link">
-                <span data-i18n="Level 2.2">Level 2.2</span>
-                <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span
-              ></a>
-              <ul class="pc-submenu">
-                <li class="pc-item"><a class="pc-link" href="#!" data-i18n="Level 3.1">Level 3.1</a></li>
-                <li class="pc-item"><a class="pc-link" href="#!" data-i18n="Level 3.2">Level 3.2</a></li>
-                <li class="pc-item pc-hasmenu">
-                  <a href="#!" class="pc-link">
-                    <span data-i18n="Level 3.3">Level 3.3</span>
-                    <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
-                  </a>
-                  <ul class="pc-submenu">
-                    <li class="pc-item"><a class="pc-link" href="#!" data-i18n="Level 4.1">Level 4.1</a></li>
-                    <li class="pc-item"><a class="pc-link" href="#!" data-i18n="Level 4.2">Level 4.2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="pc-item pc-hasmenu">
-              <a href="#!" class="pc-link">
-                <span data-i18n="Level 2.3">Level 2.3</span>
-                <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span
-              ></a>
-              <ul class="pc-submenu">
-                <li class="pc-item"><a class="pc-link" href="#!" data-i18n="Level 3.1">Level 3.1</a></li>
-                <li class="pc-item"><a class="pc-link" href="#!" data-i18n="Level 3.2">Level 3.2</a></li>
-                <li class="pc-item pc-hasmenu">
-                  <a href="#!" class="pc-link">
-                    <span data-i18n="Level 3.3">Level 3.3</span>
-                    <span class="pc-arrow"><i class="ti ti-chevron-right"></i></span>
-                  </a>
-                  <ul class="pc-submenu">
-                    <li class="pc-item"><a class="pc-link" href="#!" data-i18n="Level 4.1">Level 4.1</a></li>
-                    <li class="pc-item"><a class="pc-link" href="#!" data-i18n="Level 4.2">Level 4.2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
+            <li class="pc-item"><a class="pc-link" href="{{url('/eventUKT')}}" data-i18n="Ujian Kenaikan Tingkat">Ujian Kenaikan Tingkat</a></li>
+            
           </ul>
         </li>
         <li class="pc-item">

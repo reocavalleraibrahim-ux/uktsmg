@@ -36,6 +36,7 @@ class JejaController extends Controller
             'tempat_lahir'  =>  'required|string',
             'tanggal_lahir' =>  'required|date',
             'tingkat'       =>  'required|string',
+            'jkel'          =>  'required|string',
             'no_registrasi' =>  'nullable|string',
             'foto'          =>  'nullable|image|mimes:jpg,jpeg,png|max:2048'  
         ]);
@@ -47,6 +48,7 @@ class JejaController extends Controller
                 'nama_jeja'     =>  $request->nama_jeja,
                 'tempat_lahir'  =>  $request->tempat_lahir,
                 'tanggal_lahir' =>  $request->tanggal_lahir,
+                'jkel'          =>  $request->jkel,
                 'tingkat'       =>  $request->tingkat,
                 'no_registrasi' =>  $request->no_registrasi,
                 'foto'          =>  $imagePath
@@ -57,6 +59,7 @@ class JejaController extends Controller
                 'nama_jeja'     =>  $request->nama_jeja,
                 'tempat_lahir'  =>  $request->tempat_lahir,
                 'tanggal_lahir' =>  $request->tanggal_lahir,
+                'jkel'          =>  $request->jkel,
                 'tingkat'       =>  $request->tingkat,
                 'no_registrasi' =>  $request->no_registrasi
             ]);
@@ -88,7 +91,43 @@ class JejaController extends Controller
      */
     public function update(Request $request, String $id)
     {
-        //
+        $request->validate([
+            'nama_jeja'     =>  'required|string',
+            'tempat_lahir'  =>  'required|string',
+            'tanggal_lahir' =>  'required|date',
+            'tingkat'       =>  'required|string',
+            'jkel'          =>  'required|string',
+            'no_registrasi' =>  'nullable|string',
+            'foto'          =>  'nullable|image|mimes:jpg,jpeg,png|max:2048'  
+        ]);
+
+        if($request->hasFile('foto')){
+            $imagePath = $request->file('foto')->store('foto','public');
+            $jeja = Jeja::where(['id' => $id]);
+            $jeja->update([
+                'id_dojang'     =>  session('id'),
+                'nama_jeja'     =>  $request->nama_jeja,
+                'tempat_lahir'  =>  $request->tempat_lahir,
+                'tanggal_lahir' =>  $request->tanggal_lahir,
+                'jkel'          =>  $request->jkel,
+                'tingkat'       =>  $request->tingkat,
+                'no_registrasi' =>  $request->no_registrasi,
+                'foto'          =>  $imagePath
+            ]);
+        }else{
+            $jeja = Jeja::where(['id' => $id]);
+            $jeja->update([
+                'id_dojang'     =>  session('id'),
+                'nama_jeja'     =>  $request->nama_jeja,
+                'tempat_lahir'  =>  $request->tempat_lahir,
+                'tanggal_lahir' =>  $request->tanggal_lahir,
+                'jkel'          =>  $request->jkel,
+                'tingkat'       =>  $request->tingkat,
+                'no_registrasi' =>  $request->no_registrasi
+            ]);
+        }
+
+        return redirect('/jeja')->with('success','Berhasil update data jeja');
     }
 
     /**
@@ -96,6 +135,9 @@ class JejaController extends Controller
      */
     public function destroy(String $id)
     {
-        //
+        $jeja = Jeja::where(['id' => $id]);
+        $jeja->delete($id);
+
+        return redirect('/jeja')->with('success','Berhasil menghapus data jeja');
     }
 }

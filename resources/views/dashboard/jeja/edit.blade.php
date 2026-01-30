@@ -10,8 +10,9 @@
               </div>
               <div class="card-body px-0 py-3">
                 <div class="table-responsive">
-                  <form method="post" action="{{ url('/jeja')}}" enctype="multipart/form-data">
+                  <form method="post" action="{{ url('/jeja/'.$jeja->id)}}" enctype="multipart/form-data">
                      @csrf
+                     @method('PUT')
                     <div class="container mt-5">
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -35,13 +36,30 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-md-2">
+                            @if($jeja->foto <> null)
+                                <img id="prev" alt="" style="max-width:200px" src="{{asset('storage/'.$jeja->foto)}}">
+                            @else
+                                <img id="prev" alt="" style="max-width:200px" src="{{asset('img/user.png')}}">
+                            @endif
+                        </div>
+                        <div class="col-md-4">
+                        </div>
                         <div class="col-md-6">
-                            <label for="name" class="form-label">No Registrasi</label>
-                            <input type="text" class="form-control" id="no_registrasi" name="no_registrasi" placeholder="Nomor Registrasi" value="{{$jeja->no_registrasi}}">
+                            <label for="name" class="form-label">Jenis Kelamin</label>
+                            <select name="jkel" class="form-control">
+                                <option>Pilih Jenis Kelamin</option>
+                                <option value="laki-laki" <?php if($jeja->jkel == 'laki-laki'){ echo 'selected';}?>>Laki-Laki</option>
+                                <option value="perempuan" <?php if($jeja->jkel == 'perempuan'){ echo 'selected';}?>>Perempuan</option>
+                            </select>
                         </div>
                         <div class="col-md-6">
                             <label for="name" class="form-label">Foto</label>
                             <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">No Registrasi</label>
+                            <input type="text" class="form-control" id="no_registrasi" name="no_registrasi" placeholder="Nomor Registrasi" value="{{$jeja->no_registrasi}}">
                         </div>
                         <div class="col-md-6">
                             <input type="submit" class="btn btn-primary" name="Create">
@@ -54,14 +72,11 @@
             </div>
           </div>
 <script>
-    document.getElementById('username').addEventListener("keydown",function (e){
-        if(e.key === " "){
-            e.preventDefault();
+    foto.onchange = evt => {
+        const [file] = foto.files
+        if(file){
+            prev.src = URL.createObjectURL(file)
         }
-    });
-
-    document.getElementById('username').addEventListener("paste", function(e){
-        e.preventDefault();
-    });
+    }
 </script>
 @endsection
