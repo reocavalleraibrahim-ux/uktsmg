@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\UKT;
 use App\Models\Jeja;
 use App\Models\Registrasi;
+use App\Exports\UKTExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UKTController extends Controller
 {
@@ -115,9 +117,27 @@ class UKTController extends Controller
             'id_ukt'    =>  'required|numeric',
             'id_jeja'   =>  'required|numeric'
         ]);
+        
+        $data = [
+            'id_ukt'        =>  $request->id_ukt,
+            'id_jeja'       =>  $request->id_jeja,
+            'user_action'   =>  session('username')
+        ];
 
         Registrasi::create($data);
 
         return redirect('/daftarUKT/'.$request->id_ukt)->with('success','Berhasil Daftar Jeja ke UKT');
+    }
+
+    public function batalRegistUkt(Request $request)
+    {
+        Registrasi::where(['id' => $request->id_registrasi])->delete();
+
+        return redirect('/daftarUKT/'.$request->id_ukt)->with('success','Berhasil Batal Daftar Jeja ke UKT');
+    }
+
+    public function cetakExcel($id_event)
+    {
+        return Excel::download(new UKTExport($id_event),'UKT.xlsx');
     }
 }

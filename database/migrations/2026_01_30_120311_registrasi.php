@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('id_jeja')
                 ->references('id')
                 ->on('jeja');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

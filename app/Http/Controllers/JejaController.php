@@ -35,10 +35,13 @@ class JejaController extends Controller
             'nama_jeja'     =>  'required|string',
             'tempat_lahir'  =>  'required|string',
             'tanggal_lahir' =>  'required|date',
+            'alamat'        =>  'required|string',
+            'nohp'          =>  'required|numeric',
             'tingkat'       =>  'required|string',
             'jkel'          =>  'required|string',
             'no_registrasi' =>  'nullable|string',
-            'foto'          =>  'nullable|image|mimes:jpg,jpeg,png|max:2048'  
+            'foto'          =>  'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'id_tcon'       =>  'nullable|string'  
         ]);
 
         if($request->hasFile('foto')){
@@ -48,6 +51,8 @@ class JejaController extends Controller
                 'nama_jeja'     =>  $request->nama_jeja,
                 'tempat_lahir'  =>  $request->tempat_lahir,
                 'tanggal_lahir' =>  $request->tanggal_lahir,
+                'alamat'        =>  $request->alamat,
+                'nohp'          =>  $request->nohp,
                 'jkel'          =>  $request->jkel,
                 'tingkat'       =>  $request->tingkat,
                 'no_registrasi' =>  $request->no_registrasi,
@@ -59,6 +64,8 @@ class JejaController extends Controller
                 'nama_jeja'     =>  $request->nama_jeja,
                 'tempat_lahir'  =>  $request->tempat_lahir,
                 'tanggal_lahir' =>  $request->tanggal_lahir,
+                'alamat'        =>  $request->alamat,
+                'nohp'          =>  $request->nohp,
                 'jkel'          =>  $request->jkel,
                 'tingkat'       =>  $request->tingkat,
                 'no_registrasi' =>  $request->no_registrasi
@@ -95,6 +102,8 @@ class JejaController extends Controller
             'nama_jeja'     =>  'required|string',
             'tempat_lahir'  =>  'required|string',
             'tanggal_lahir' =>  'required|date',
+            'alamat'        =>  'required|string',
+            'nohp'          =>  'required|numeric',
             'tingkat'       =>  'required|string',
             'jkel'          =>  'required|string',
             'no_registrasi' =>  'nullable|string',
@@ -109,6 +118,8 @@ class JejaController extends Controller
                 'nama_jeja'     =>  $request->nama_jeja,
                 'tempat_lahir'  =>  $request->tempat_lahir,
                 'tanggal_lahir' =>  $request->tanggal_lahir,
+                'alamat'        =>  $request->alamat,
+                'nohp'          =>  $request->nohp,
                 'jkel'          =>  $request->jkel,
                 'tingkat'       =>  $request->tingkat,
                 'no_registrasi' =>  $request->no_registrasi,
@@ -121,6 +132,8 @@ class JejaController extends Controller
                 'nama_jeja'     =>  $request->nama_jeja,
                 'tempat_lahir'  =>  $request->tempat_lahir,
                 'tanggal_lahir' =>  $request->tanggal_lahir,
+                'alamat'        =>  $request->alamat,
+                'nohp'          =>  $request->nohp,
                 'jkel'          =>  $request->jkel,
                 'tingkat'       =>  $request->tingkat,
                 'no_registrasi' =>  $request->no_registrasi

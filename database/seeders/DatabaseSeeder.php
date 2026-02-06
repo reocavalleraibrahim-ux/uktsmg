@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Tingkat;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,6 +23,8 @@ class DatabaseSeeder extends Seeder
             'username' => 'test',
         ]);
 
-        $this->call(UserSeeder::class);
+        //$this->call(UserSeeder::class);
+
+        $this->call(TingkatSeeder::class);
     }
 }

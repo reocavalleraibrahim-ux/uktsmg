@@ -15,9 +15,12 @@ class Jeja extends Model
         'nama_jeja',
         'tempat_lahir',
         'tanggal_lahir',
+        'alamat',
+        'nohp',
         'jkel',
         'tingkat',
         'no_registrasi',
-        'foto'
+        'foto',
+        'id_tcon'
     ];
 }

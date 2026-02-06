@@ -14,7 +14,7 @@
                      @csrf
                     <div class="container mt-5">
                     <div class="row g-3">
-                        <div class="col-md-6">
+                        <div class="col-md-6">  
                             <label for="name" class="form-label">Nama Jeja</label>
                             <input type="text" class="form-control" id="nama_jeja" name="nama_jeja" placeholder="Nama Jeja">
                         </div>
@@ -25,6 +25,14 @@
                         <div class="col-md-6">
                             <label for="name" class="form-label">Tanggal Lahir</label>
                             <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Alamat</label>
+                            <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">No HP</label>
+                            <input type="number" class="form-control" id="nohp" name="nohp" placeholder="NO HP">
                         </div>
                         <div class="col-md-6">
                             <label for="name" class="form-label">Sabuk</label>
@@ -40,13 +48,19 @@
                         </div>
                         <div class="col-md-4">
                         </div>
-                        <div class="col-md-6">
-                            <label for="name" class="form-label">Jenis Kelamin</label>
-                            <select name="jkel" class="form-control">
-                                <option>Pilih Jenis Kelamin</option>
-                                <option value="laki-laki">Laki-Laki</option>
-                                <option value="perempuan">Perempuan</option>
-                            </select>
+                        <div class="col-md-6 d-flex-row">
+                            <div class="col-md-12">
+                                <label for="name" class="form-label">Jenis Kelamin</label>
+                                <select name="jkel" class="form-control">
+                                    <option>Pilih Jenis Kelamin</option>
+                                    <option value="laki-laki">Laki-Laki</option>
+                                    <option value="perempuan">Perempuan</option>
+                                </select>
+                            </div><br>
+                            <div class="col-md-12">
+                                <label for="name" class="form-label">ID TCON</label>
+                                <input type="text" class="form-control" id="id_tcon" name="id_tcon" placeholder="ID TCON">
+                            </div>
                         </div>
                         <div class="col-md-10">
                         </div>

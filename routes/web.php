@@ -21,3 +21,5 @@ Route::resource('/ukt',UKTController::class);
 Route::get('/eventUKT',[UKTController::class, 'eventUKT'])->name('eventUKT');
 Route::get('/daftarUKT/{id_event}',[UKTController::class, 'daftarUKT'])->name('daftarUKT');
 Route::post('/registUKT',[UKTController::class,'registUKT'])->name('registUKT');
+Route::post('/batalRegistUKT',[UKTController::class,'batalRegistUKT'])->name('batalRegistUKT');
+Route::get('/cetakExcel/{id_event}',[UKTController::class,'cetakExcel'])->name('cetakExcel');

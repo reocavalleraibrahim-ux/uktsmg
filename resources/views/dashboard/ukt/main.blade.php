@@ -37,6 +37,7 @@
                             <td>{{$u->tempat_ukt}}</td>
                             <td>{{$u->informasi}}</td>
                             <td>
+                                <a href="{{ url('/daftarUKT/'.$u->id)}}" class="badge me-2 bg-blue-500 text-white f-12">Lihat</a>
                                 <a href="{{ url('/ukt/'.$u->id.'/edit')}}" class="badge me-2 bg-blue-300 text-white f-12">edit</a>
                                     <form action="{{ route('ukt.destroy', $u->id) }}" method="POST" style="display:inline" onsubmit="return confirm('Yakin Menghapus Data UKT?')">
                                     @csrf

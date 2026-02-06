@@ -1,6 +1,6 @@
 @extends('dashboard.layout.app')
 
-@section('title','Buat Data Jeja')
+@section('title','Edit Data Jeja')
 
 @section('content')
     <div class="col-xl-12 col-md-8">
@@ -28,6 +28,14 @@
                             <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir" value="{{$jeja->tanggal_lahir}}">
                         </div>
                         <div class="col-md-6">
+                            <label for="name" class="form-label">Alamat</label>
+                            <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" value="{{$jeja->alamat}}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">No HP</label>
+                            <input type="number" class="form-control" id="nohp" name="nohp" placeholder="NO HP" value="$jeja->nohp">
+                        </div>
+                        <div class="col-md-6">
                             <label for="name" class="form-label">Sabuk</label>
                             <select name="tingkat" id="tingkat" class="form-control">
                                 <option>Pilih Sabuk</option>
@@ -37,21 +45,27 @@
                             </select>
                         </div>
                         <div class="col-md-2">
-                            @if($jeja->foto <> null)
-                                <img id="prev" alt="" style="max-width:200px" src="{{asset('storage/'.$jeja->foto)}}">
+                            @if($jeja->foto)
+                                <img id="prev" alt="" style="max-width:200px; max-height:220px;" src="{{ asset('storage/'.$jeja->foto) }}">
                             @else
-                                <img id="prev" alt="" style="max-width:200px" src="{{asset('img/user.png')}}">
+                                <img id="prev" alt="" style="max-width:200px; max-height:220px;" src="{{asset('img/user.png')}}">
                             @endif
                         </div>
                         <div class="col-md-4">
                         </div>
-                        <div class="col-md-6">
-                            <label for="name" class="form-label">Jenis Kelamin</label>
-                            <select name="jkel" class="form-control">
-                                <option>Pilih Jenis Kelamin</option>
-                                <option value="laki-laki" <?php if($jeja->jkel == 'laki-laki'){ echo 'selected';}?>>Laki-Laki</option>
-                                <option value="perempuan" <?php if($jeja->jkel == 'perempuan'){ echo 'selected';}?>>Perempuan</option>
-                            </select>
+                        <div class="col-md-6 d-flex-row">
+                            <div class="col-md-12">
+                                <label for="name" class="form-label">Jenis Kelamin</label>
+                                <select name="jkel" class="form-control">
+                                    <option>Pilih Jenis Kelamin</option>
+                                    <option value="laki-laki" <?php if($jeja->jkel == 'laki-laki'){ echo 'selected';}?>>Laki-Laki</option>
+                                    <option value="perempuan" <?php if($jeja->jkel == 'perempuan'){ echo 'selected';}?>>Perempuan</option>
+                                </select>
+                            </div><br>
+                            <div class="col-md-12">
+                                <label for="name" class="form-label">ID TCON</label>
+                                <input type="text" class="form-control" id="id_tcon" name="id_tcon" placeholder="ID TCON" value="{{$jeja->id_tcon}}">
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <label for="name" class="form-label">Foto</label>

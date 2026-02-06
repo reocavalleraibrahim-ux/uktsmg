@@ -10,6 +10,6 @@ class Registrasi extends Model
     protected $fillable = [
         'id_ukt',
         'id_jeja',
-        'status'
+        'status',
     ];
 }
