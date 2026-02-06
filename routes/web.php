@@ -23,3 +23,5 @@ Route::get('/daftarUKT/{id_event}',[UKTController::class, 'daftarUKT'])->name('d
 Route::post('/registUKT',[UKTController::class,'registUKT'])->name('registUKT');
 Route::post('/batalRegistUKT',[UKTController::class,'batalRegistUKT'])->name('batalRegistUKT');
 Route::get('/cetakExcel/{id_event}',[UKTController::class,'cetakExcel'])->name('cetakExcel');
+Route::get('/resetPass',[UserController::class,'resetPass'])->name('resetPass');
+Route::post('/updatePass',[UserController::class,'updatePass'])->name('updatePass');

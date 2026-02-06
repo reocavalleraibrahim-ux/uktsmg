@@ -116,6 +116,11 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-end mt-4">
                 </div>
+    @if (session('success'))
+        <div style="color:green;">
+            {{ session('success') }}
+        </div>
+    @endif  
     @if ($errors->any())
         <div style="color:red;">
             {{ $errors->first() }}

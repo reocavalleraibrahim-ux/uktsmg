@@ -58,6 +58,7 @@
           
           <i class="ph ph-tree-structure"></i>
         </li>
+    @if(session('role') <> 'admin')
         <li class="pc-item pc-hasmenu">
           <a href="#!" class="pc-link"
             ><span class="pc-micon"> <i class="ph ph-calendar"></i> </span><span class="pc-mtext" data-i18n="Menu levels">Event</span
@@ -67,6 +68,13 @@
             <li class="pc-item"><a class="pc-link" href="{{url('/eventUKT')}}" data-i18n="Ujian Kenaikan Tingkat">Ujian Kenaikan Tingkat</a></li>
             
           </ul>
+        </li>
+    @endif
+        <li class="pc-item">
+          <a href="{{url('/resetPass')}}" class="pc-link">
+            <span class="pc-micon"> <i class="ph ph-clock-clockwise"></i></span>
+            <span class="pc-mtext">Reset Pasword</span>
+          </a>
         </li>
         <li class="pc-item">
             <form action="{{ url('/logout') }}" method="POST">

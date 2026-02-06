@@ -37,7 +37,7 @@
                             <td>{{$u->tempat_ukt}}</td>
                             <td>{{$u->informasi}}</td>
                             <td>
-                                <a href="{{ url('/daftarUKT/'.$u->id)}}" class="badge me-2 bg-blue-300 text-white f-12">Daftar</a>
+                                <a href="{{ url('/daftarUKT/'.$u->id)}}" class="badge me-2 bg-blue-300 text-white f-12">Lihat</a>
                             </td>
                         </tr>
                         @endforeach

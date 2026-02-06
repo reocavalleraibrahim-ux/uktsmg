@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -89,5 +90,34 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function resetPass()
+    {
+        return view('dashboard.user.reset');
+    }
+
+    public function updatePass(Request $request)
+    {
+        $dat = User::where(['id' => session('id')])->first();
+
+        if($dat->nohp == $request->nohp){
+            if($request->password === $request->password1){
+                $usr = User::where(['id' => session('id')]);
+                $usr->update(['password' => Hash::make($request->password)]);
+
+
+                Auth::logout();
+
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                 return redirect('/login')->with('success','Berhasil Reset Password');
+            }else{
+                return redirect()->back()->with('error','Password dan Konfirmasi Password tidak sama');
+            }
+        }else{
+            return redirect()->back()->with('error','No HP Tidak Cocok');
+        }
     }
 }
